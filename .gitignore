@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+~$*.xlsx
+~$*.docx
+
+# Raw and generated datasets stay local by default.
+data/raw/*
+data/interim/*
+data/processed/*
+!data/raw/README.md
+!data/interim/README.md
+!data/processed/README.md
+
+# Generated caches and temporary files
+outputs/cache/
+tmp/
+*.log
+
+# LaTeX build artifacts
+build/
+dist/
+.latex-build*/
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz
+*.xdv
+
+# Secrets
+.env
+*.key
+*.pem
