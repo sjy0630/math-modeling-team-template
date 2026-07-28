@@ -41,6 +41,7 @@ dist/
 *.out
 *.synctex.gz
 *.xdv
+paper/main.pdf
 
 # Secrets
 .env

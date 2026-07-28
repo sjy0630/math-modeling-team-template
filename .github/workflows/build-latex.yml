@@ -21,28 +21,23 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v6
-      - name: Install TeX Live
-        uses: zauguin/install-texlive@v4
-        with:
-          packages: |
-            scheme-small
-            collection-langchinese
-            collection-latexrecommended
-            latexmk
       - name: Compile paper
-        working-directory: paper
-        run: latexmk -xelatex -interaction=nonstopmode -halt-on-error -outdir=../dist main.tex
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: paper/main.tex
+          work_in_root_file_dir: true
+          latexmk_use_xelatex: true
       - name: Upload PDF
         if: success()
         uses: actions/upload-artifact@v7
         with:
           name: paper-pdf
-          path: dist/main.pdf
+          path: paper/main.pdf
           retention-days: 30
       - name: Upload log on failure
         if: failure()
         uses: actions/upload-artifact@v7
         with:
           name: latex-log
-          path: dist/main.log
+          path: paper/main.log
           if-no-files-found: ignore
